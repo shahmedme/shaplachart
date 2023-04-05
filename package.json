@@ -1,8 +1,8 @@
 {
-	"name": "shapla",
+	"name": "shaplachart",
 	"version": "0.0.1",
 	"type": "module",
-	"description": "Shapla is a data visualization library",
+	"description": "Shapla chart is a data visualization library",
 	"main": "dist/shapla.esm.js",
 	"module": "dist/shapla.esm.js",
 	"browser": "dist/shapla.umd.js",
