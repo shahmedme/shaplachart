@@ -7,7 +7,7 @@ import pkg from "./package.json";
 
 export default [
 	{
-		input: "src/js/index.js",
+		input: "packages/shapla/src/js/index.js",
 		output: {
 			sourcemap: true,
 			name: "shapla",
@@ -24,7 +24,7 @@ export default [
 		],
 	},
 	{
-		input: "src/js/chart.js",
+		input: "packages/shapla/src/js/chart.js",
 		output: [
 			{ file: pkg.common, format: "cjs", sourcemap: true },
 			{ file: pkg.module, format: "es", sourcemap: true },

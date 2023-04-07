@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard</title>
+	</head>
+	<body>
+		<h1>This is dashboard</h1>
+		<div id="chart"></div>
+
+		<script src="../../dist/shapla.umd.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.4/d3.min.js"
+			integrity="sha512-nfUlp2ZWPKWlnAH/OsMeAqRSYBxOdPYeBXwceyw6QqqZ7uTT/s5/eS1hMKphjVBouk0jf/JQ8ULVJRnEqSHkXA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<script>
+			new shapla.Chart("#chart", {
+				width: 300,
+				height: 300,
+				data: [
+					{ name: "Shakil", value: 20 },
+					{ name: "Abir", value: 45 },
+					{ name: "Rio", value: 22 },
+				],
+			});
+		</script>
+	</body>
+</html>
