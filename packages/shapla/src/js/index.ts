@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Charts from "./chart";
 
 let shapla = {};

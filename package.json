@@ -3,43 +3,36 @@
 	"version": "0.0.1",
 	"type": "module",
 	"description": "Shapla chart is a data visualization library",
-	"main": "dist/shapla.esm.js",
+	"main": "dist/shapla.cjs.js",
 	"module": "dist/shapla.esm.js",
 	"browser": "dist/shapla.umd.js",
-	"common": "dist/shapla.cjs.js",
-	"unnpkg": "dist/shapla.umd.js",
-	"files": [
-		"src",
-		"dist"
-	],
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"watch": "rollup -c --watch",
-		"dev": "npm-run-all --parallel watch",
-		"build": "rollup -c"
-	},
 	"keywords": [
 		"js",
 		"charts"
 	],
 	"author": "Shakil Ahmed",
 	"license": "MIT",
-	"devDependencies": {
-		"@babel/core": "^7.10.5",
-		"@babel/preset-env": "^7.10.4",
-		"node-sass": "^8.0.0",
-		"npm-run-all": "^4.1.5",
-		"rollup": "^2.21.0",
-		"rollup-plugin-babel": "^4.4.0",
-		"rollup-plugin-bundle-size": "^1.0.3",
-		"rollup-plugin-commonjs": "^10.1.0",
-		"rollup-plugin-eslint": "^7.0.0",
-		"rollup-plugin-node-resolve": "^5.2.0",
-		"rollup-plugin-postcss": "^3.1.3",
-		"rollup-plugin-scss": "^2.5.0",
-		"rollup-plugin-terser": "^6.1.0"
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -c -w",
+		"test": "node test/test.js",
+		"pretest": "npm run build"
 	},
+	"files": [
+		"dist"
+	],
 	"dependencies": {
-		"d3": "^7.8.2"
+		"d3": "^7.8.5",
+		"dayjs": "^1.11.8",
+		"ms": "^2.0.0"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^11.0.1",
+		"@rollup/plugin-json": "^6.0.0",
+		"@rollup/plugin-node-resolve": "^7.0.0",
+		"@types/d3": "^7.4.0",
+		"rollup": "^1.29.0",
+		"rollup-plugin-typescript": "^1.0.1",
+		"typescript": "^5.1.6"
 	}
 }

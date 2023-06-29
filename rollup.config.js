@@ -1,41 +1,25 @@
-import babel from "rollup-plugin-babel";
-import bundleSize from "rollup-plugin-bundle-size";
-import commonjs from "rollup-plugin-commonjs";
-import postcss from "rollup-plugin-postcss";
-import { terser } from "rollup-plugin-terser";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "rollup-plugin-typescript";
 import pkg from "./package.json";
 
 export default [
 	{
-		input: "packages/shapla/src/js/index.js",
+		input: "packages/shapla/src/js/index.ts",
 		output: {
-			sourcemap: true,
 			name: "shapla",
 			file: pkg.browser,
 			format: "umd",
 		},
-		plugins: [
-			commonjs(),
-			babel({
-				exclude: ["node_modules/**"],
-			}),
-			terser(),
-			bundleSize(),
-		],
+		plugins: [resolve(), commonjs(), typescript()],
 	},
 	{
-		input: "packages/shapla/src/js/chart.js",
+		input: "packages/shapla/src/js/index.ts",
+		external: ["d3"],
+		plugins: [typescript()],
 		output: [
-			{ file: pkg.common, format: "cjs", sourcemap: true },
-			{ file: pkg.module, format: "es", sourcemap: true },
-		],
-		plugins: [
-			babel({
-				exclude: ["node_modules/**"],
-			}),
-			terser(),
-			postcss(),
-			bundleSize(),
+			{ file: pkg.main, format: "cjs" },
+			{ file: pkg.module, format: "es" },
 		],
 	},
 ];

@@ -1,10 +1,16 @@
+import * as d3 from "d3";
+
 export default class BaseChart {
-	constructor(parent, options) {
+	private parent: any;
+	private data: any;
+	private config: any;
+
+	constructor(parent: any, options: any) {
 		console.log("on base chart---------->>>>>>>>>");
 		this.parent = document.querySelector(parent);
 		this.data = options.data;
 		this.config = options;
-		this.draw(options);
+		this.draw();
 	}
 
 	draw() {
@@ -12,22 +18,19 @@ export default class BaseChart {
 
 		this.parent.appendChild(_svg);
 
-		// Set up the colors for the pie chart
 		const color = d3
 			.scaleOrdinal()
-			.domain(this.data.map((d) => d.name))
+			.domain(this.data.map((d: any) => d.name))
 			.range(d3.schemeSet2);
 
-		// Set up the arc for each slice of the pie chart
 		const arc = d3
 			.arc()
 			.innerRadius(0)
 			.outerRadius(Math.min(this.config.width, this.config.height) / 2);
 
-		// Set up the pie layout
+		// @ts-ignore
 		const pie = d3.pie().value((d) => d.value);
 
-		// Create the SVG element
 		const svg = d3
 			.select("svg")
 			.attr("width", this.config.width)
@@ -38,13 +41,14 @@ export default class BaseChart {
 				`translate(${this.config.width / 2}, ${this.config.height / 2})`
 			);
 
-		// Draw the slices of the pie chart
 		svg
 			.selectAll("path")
 			.data(pie(this.data))
 			.enter()
 			.append("path")
+			// @ts-ignore
 			.attr("d", arc)
+			// @ts-ignore
 			.attr("fill", (d) => color(d.data.name));
 	}
 }
