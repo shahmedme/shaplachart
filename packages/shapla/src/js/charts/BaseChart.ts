@@ -6,7 +6,6 @@ export default class BaseChart {
 	private config: any;
 
 	constructor(parent: any, options: any) {
-		console.log("on base chart---------->>>>>>>>>");
 		this.parent = document.querySelector(parent);
 		this.data = options.data;
 		this.config = options;

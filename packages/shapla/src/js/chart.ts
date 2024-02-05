@@ -1,7 +1,9 @@
+import BarChart from "./charts/BarChart";
 import PieChart from "./charts/PieChart";
 
 const chartTypes = {
 	pie: PieChart,
+	bar: BarChart
 };
 
 function getChartByType(chartType = "pie", parent: any, options: any) {
